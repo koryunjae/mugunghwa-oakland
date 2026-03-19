@@ -187,11 +187,11 @@ footer .copyright{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMenu();setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),300)">About</a>
-  <a href="#menu" onclick="closeMenu();setTimeout(()=>document.getElementById('menu').scrollIntoView({behavior:'smooth'}),300)">Menu</a>
-  <a href="#order" onclick="closeMenu();setTimeout(()=>document.getElementById('order').scrollIntoView({behavior:'smooth'}),300)">Order</a>
-  <a href="#reservation" onclick="closeMenu();setTimeout(()=>document.getElementById('reservation').scrollIntoView({behavior:'smooth'}),300)">Reserve</a>
-  <a href="#location" onclick="closeMenu();setTimeout(()=>document.getElementById('location').scrollIntoView({behavior:'smooth'}),300)">Visit</a>
+  <a href="#about" onclick="event.preventDefault();closeMenu();setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),300)">About</a>
+  <a href="#menu" onclick="event.preventDefault();closeMenu();setTimeout(()=>document.getElementById('menu').scrollIntoView({behavior:'smooth'}),300)">Menu</a>
+  <a href="#order" onclick="event.preventDefault();closeMenu();setTimeout(()=>document.getElementById('order').scrollIntoView({behavior:'smooth'}),300)">Order</a>
+  <a href="#reservation" onclick="event.preventDefault();closeMenu();setTimeout(()=>document.getElementById('reservation').scrollIntoView({behavior:'smooth'}),300)">Reserve</a>
+  <a href="#location" onclick="event.preventDefault();closeMenu();setTimeout(()=>document.getElementById('location').scrollIntoView({behavior:'smooth'}),300)">Visit</a>
   <a href="tel:+15109895019" class="mobile-cta">Reserve a Table</a>
 </div>
 

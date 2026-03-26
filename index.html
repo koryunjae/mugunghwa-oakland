@@ -24,10 +24,8 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);border-bot
 .nav-links a{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--brown);opacity:0.8;transition:opacity 0.2s;}
 .nav-links a:hover{opacity:1;}
 
-/* mobile-menu 기본 숨김 */
 .mobile-menu{display:none;}
 
-/* SELECT LOCATION — PC only */
 .nav-reserve{position:relative;display:inline-block;}
 .nav-cta{background:var(--brown);color:#fff;padding:10px 20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.2s;display:flex;align-items:center;gap:8px;font-family:inherit;white-space:nowrap;}
 .nav-cta:hover{background:var(--brown-light);}
@@ -57,9 +55,6 @@ nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.97);border-bot
 @keyframes kbPanLeft{from{transform:scale(1.1) translateX(3%);}to{transform:scale(1.1) translateX(-3%);}}
 @keyframes kbPanRight{from{transform:scale(1.1) translateX(-3%);}to{transform:scale(1.1) translateX(3%);}}
 @keyframes kbPanUp{from{transform:scale(1.1) translateY(3%);}to{transform:scale(1.1) translateY(-3%);}}
-.hero-dots{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:4;display:flex;gap:8px;}
-.hero-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.35);transition:background .4s,transform .4s;cursor:pointer;}
-.hero-dot.active{background:#B8860B;transform:scale(1.35);}
 .hero-content{width:100%;max-width:900px;padding:0 20px;margin:0 auto;display:flex;flex-direction:column;align-items:center;}
 .hero-logo-wrap{width:300px;height:300px;margin:0 auto 0px;display:flex;align-items:center;justify-content:center;}
 .hero-logo-wrap img{width:290px;height:290px;object-fit:contain;}
@@ -126,7 +121,6 @@ footer .f-divider{width:40px;height:1px;background:var(--gold);margin:18px auto;
 footer p{font-size:12px;letter-spacing:1.5px;margin-bottom:5px;}
 footer .copyright{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;margin-top:14px;}
 
-/* MOBILE */
 @media(max-width:768px){
   .nav-links{display:none;}
   .nav-reserve{display:none;}
@@ -237,7 +231,6 @@ footer .copyright{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;
       <button class="btn-outline" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">View Menu</button>
     </div>
   </div>
-  <div class="hero-dots" id="heroDots"></div>
 </section>
 
 <section class="about" id="about">
@@ -397,7 +390,6 @@ footer .copyright{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;
       <p class="menu-cat-title" style="margin-top:32px;">Grilled Fish</p>
       <div class="menu-grid"><div class="menu-card"><div class="menu-card-top"><span class="menu-name">Grilled Mackerel 고등어구이</span><span class="menu-price">$33</span></div><div class="menu-desc">Grilled mackerel served with traditional sides.</div></div></div>
     </div>
-    </div>
     <div id="korean" class="menu-section">
       <p class="menu-cat-title">Korean Fried Chicken</p>
       <p style="font-size:13px;color:var(--gray);line-height:1.7;margin-bottom:4px;">Choice of Wing or Boneless · Half (8pcs) / Whole (16pcs)</p>
@@ -513,19 +505,11 @@ footer .copyright{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;
 <script>
 (function(){
   const slides=Array.from(document.querySelectorAll('.hero-slide'));
-  const dotsEl=document.getElementById('heroDots');
   let cur=0,timer=null;
-  const dots=[];
-  slides.forEach((_,i)=>{
-    const d=document.createElement('div');
-    d.className='hero-dot';
-    d.addEventListener('click',()=>{goTo(i);resetTimer();});
-    dotsEl.appendChild(d);dots.push(d);
-  });
   function goTo(idx){
-    slides[cur].classList.remove('active');dots[cur].classList.remove('active');
+    slides[cur].classList.remove('active');
     const o=slides[cur].querySelector('img');o.style.animation='none';void o.offsetWidth;o.style.animation='';
-    cur=idx;slides[cur].classList.add('active');dots[cur].classList.add('active');
+    cur=idx;slides[cur].classList.add('active');
   }
   function resetTimer(){clearInterval(timer);timer=setInterval(()=>goTo((cur+1)%slides.length),5500);}
   goTo(0);resetTimer();
